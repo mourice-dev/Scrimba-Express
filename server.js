@@ -2,10 +2,19 @@
 
 import express from "express";
 
-const PORT = 8000
+const celebrity = {
+  type: "action hero",
+  name: "nshut maurice",
+};
 
-const app = express()
+const app = express();
 
-app.listen(PORT, () => {
-    console.log(`server connected! ${PORT}`);
+app.get("/", (req, res) => {
+  console.log("Root route hit");
+  res.json(celebrity);
+});
+
+
+app.listen(8000, () => {
+  console.log(`server connected! 8000`);
 });
