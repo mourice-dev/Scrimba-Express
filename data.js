@@ -1,6 +1,6 @@
 /** @format */
 
-[
+export const people = [
   {
     name: "Lena",
     job: "Architect",
