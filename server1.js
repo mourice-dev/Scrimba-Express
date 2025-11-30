@@ -4,10 +4,12 @@ import express from "express";
 import { startups } from "./data/data.js";
 
 const PORT = 8000;
+
 const app = express();
 
 app.get("/api", (req, res) => {
   let filteredData = startups;
+
   const { industry, country, continent, is_seeking_funding, has_mvp } =
     req.query;
 
@@ -48,27 +50,52 @@ app.get("/api", (req, res) => {
 
 app.get("/api/:field/:term", (req, res) => {
   const { field, term } = req.params;
+
   const allowedFields = ["country", "continent", "industry"];
 
-  // If allowed, return filtered results and STOP (return) so we don't send another response.
-  if (allowedFields.includes(field)) {
-    const filteredData = startups.filter(
-      // optional chaining just in case, but field is allowed so should exist
-      (startup) => startup[field]?.toLowerCase() === term.toLowerCase()
-    );
-
-    return res.json(filteredData); // <-- return prevents further execution
+  if (!allowedFields.includes(field)) {
+    return res
+      .status(400)
+      .json({
+        message:
+          "Search field not allowed. Please use only 'country', 'continent', 'industry'",
+      });
   }
 
-  // Format allowed fields exactly as required: "'country', 'continent', 'industry'"
-  const formattedFields = allowedFields.map((f) => `'${f}'`).join(", ");
+  /*
+Challenge:
+1. If the client’s 'field' is not supported, serve this object:
+  {message: "Search field not allowed. Please use only 'country', 'continent', 'industry'" }
+2. Chain in the .status(<code>) method to set a status code.
+	What status code should you set?
+3. You might run into an error! Find a solution!
 
-  // Exact message required by the challenge:
-  return res
-    .status(400)
-    .json({
-      message: `Search field not allowed. Please use only ${formattedFields}`,
-    });
+hint.md for help!
+*/
+
+  const filteredData = startups.filter(
+    (startup) => startup[field].toLowerCase() === term.toLowerCase()
+  );
+
+  res.json(filteredData);
 });
+
+/*
+** The functionality **
+Get all startups in a given country via api/country/<country name>
+Get all startups in a given continent via api/continent/<continent name>
+Get all startups in a given industry via api/industry/<industry name>
+
+**Test Cases** 
+
+These should work:
+  api/country/india
+  api/continent/europe
+  api/industry/ai
+
+This should return the object given in the challenge above. 
+	api/has_mvp/true
+
+*/
 
 app.listen(PORT, () => console.log(`server connected on port ${PORT}`));
