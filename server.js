@@ -1,18 +1,18 @@
 /** @format */
 
 import express from "express";
-import { apiRouter } from "./routes/apiRoutes.js";
+import { apiRouter } from "./routes/apiRoute.js";
 
 const PORT = 8000;
 const app = express();
 
-// 1️⃣ Valid API routes
+
 app.use("/api", apiRouter);
 
-// 2️⃣ Catch-all 404 (must be last!)
+
 app.use((req, res) => {
   res.status(404).json({    // we do have to spicifiy the api for error 404 status 
-    message: "Endpoint not found. Please check the API documentation.",
+    message: "Endpoint not found. Please check the API documentation."
   });
 });
 
