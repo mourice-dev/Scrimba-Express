@@ -10,7 +10,7 @@ const app = express();
 app.use("/api", apiRouter);
 
 // 2️⃣ Catch-all 404 (must be last!)
-app.use((req, res) => {
+app.use('/',(req, res) => {
   res.status(404).json({
     message: "Endpoint not found. Please check the API documentation.",
   });
