@@ -1,7 +1,7 @@
 /** @format */
 
 import express from "express";
-import { startups } from "./data/data.js";
+import { startups } from "../data/data.js";
 
 const PORT = 8000;
 
