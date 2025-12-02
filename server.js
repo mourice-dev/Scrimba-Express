@@ -19,7 +19,7 @@ Challenge 2:
 
 */
 
-
+app.use("/api/products", productsRouter);
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
   }).on("error", (err) => {
