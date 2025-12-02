@@ -1,11 +1,13 @@
 /** @format */
 
-export async function getGenres() {
+export async function getGenres(req, res) {
   console.log("genres");
+  res.send("genres");
 }
 
-export async function getProducts() {
+export async function getProducts(req, res) {
   console.log("products");
+  res.send("products");
 }
 
 
