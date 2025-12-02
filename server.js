@@ -1,26 +1,68 @@
+
+
 /** @format */
 
 import express from "express";
-import { apiRouter } from "./routes/apiRoute.js";
-import cors from 'cors'
 
-const PORT = 8000;
 const app = express();
+const PORT = 8000;
 
-app.use(express.static('public'));
-app.use(cors());
+app.use(express.static("public"));
 
+/*
+Challenge 2:
 
-app.use("/api", apiRouter);
+- Handle any request to /api/products and pass it to productsRouter.
 
+- Save and reload the mini browser. 
+  You should see the results of the console.logs from productsControllers.js
 
-app.use((req, res) => {
-  res.status(404).json({    // we do have to spicifiy the api for error 404 status 
-    message: "Endpoint not found. Please check the API documentation."
+*/
+
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  }).on("error", (err) => {
+    console.error("Failed to start server:", err);
   });
-});
 
-app.listen(PORT, () => console.log(`server connected on port ${PORT}`));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+// /** @format */
+
+// import express from "express";
+// import { apiRouter } from "./routes/apiRoute.js";
+// import cors from 'cors'
+
+// const PORT = 8000;
+// const app = express();
+
+// app.use(express.static('public'));
+// app.use(cors());
+
+// app.use("/api", apiRouter);
+
+// app.use((req, res) => {
+//   res.status(404).json({    // we do have to spicifiy the api for error 404 status
+//     message: "Endpoint not found. Please check the API documentation."
+//   });
+// });
+
+// app.listen(PORT, () => console.log(`server connected on port ${PORT}`));
 
 // import express from "express";
 // import { apiRouter } from "./routes/apiRoutes.js";

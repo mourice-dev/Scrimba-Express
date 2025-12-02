@@ -1,57 +1,49 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plaster&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Spiral Sounds</title>
 </head>
 
 <body>
-	<header>
-		<h1>BBC NEWS</h1>
-		<p class="header-text">
-			<a href="" class="selected">Home</a> |
-			<a href="">World</a> |
-			<a href="">USA</a> |
-			<a href="">Europe</a> |
-			<a href="">Asia</a> |
-			<a href="">Africa</a> |
-			<a href="">Climate</a>
-		</p>
-	</header>
-	<main>
-		<section>
-			<div class="text-left">
-				<h2>Parrot uses smart speaker to order 240 garden gnomes</h2>
-				<p>
-					A man from Birmingham woke up to find 240 identical garden gnomes on his doorstep. Confused and mildly
-					terrified, he initially suspected a prank—until he heard his pet parrot Rio calmly repeat the phrase “order
-					more gnomes” in a voice eerily similar to his own. Upon checking his smart speaker’s purchase history, the
-					mystery was solved: his chatty parrot had accidentally triggered a bulk order spree while the man was away at
-					work.
-				</p>
-			</div>
-			<div>
-				<img src="images/man.jpg" alt="man and parrots and 240 gnomes">
-			</div>
-		</section>
-		<section>
-			<div class="text-left">
-				<p>
-					“I thought it was a glitch,” said Gary Blackbeard, “but then I remembered he’s obsessed with the word
-					‘gnome’.” The incident has since gone viral, with neighbors taking selfies among the tiny bearded invaders.
-					The man is now in discussions with local garden centers about a donation—or possibly opening the UK’s first
-					gnome sanctuary.
-				</p>
-			</div>
-			<div>
-				<img src="images/gnome.jpg" alt="garden gnomes">
-			</div>
-		</section>
-	</main>
-	<footer>
-		<p>
-			&copy; 2022 This is Fake News. Do not believe everything you read.
-		</p>
-	</footer>
+  <div class="top-banner">
+    <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    <nav class="header-menu" aria-label="Main menu">
+      <a href="#">Login</a>
+      <a href="#">Cart</a>
+      <form role="search">
+        <label for="search-input" class="visually-hidden">Search products</label>
+        <input type="text" placeholder="Search..." id="search-input">
+      </form>
+    </nav>
+  </div>
+
+  <header> 
+    <img src="/images/spiral_logo.png" alt="Spiral Sounds Logo">
+    <div class="header-text">
+      <h1>Spiral Sounds</h1>
+      <p class="subhead">The best in vinyl</p>
+    </div>
+  </header>
+
+  <section class="genre-select-container">
+    <label for="genre-select">View by genre</label>
+    <select id="genre-select">
+      <option value="">Show All</option>
+    </select>
+  </section>
+
+  <main class="products" id="products-container"></main>
+    <footer>
+        <p>© Spiral Sounds</p>
+    </footer>
+    <script src="index.js" type="module"></script>
 </body>
 
 </html>
