@@ -2,10 +2,12 @@
 
 import express from "express";
 import { apiRouter } from "./routes/apiRoute.js";
-import { cors } from 'cors'
+import cors from 'cors'
 
 const PORT = 8000;
 const app = express();
+
+app.use(express.static('public'));
 app.use(cors());
 
 
