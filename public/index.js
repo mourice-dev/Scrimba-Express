@@ -33,7 +33,7 @@ function renderProducts(products) {
       </div>
     `;
     })
-    .join("");
+    .join(""); 
 
   albumsContainer.innerHTML = cards;
 }

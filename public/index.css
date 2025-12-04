@@ -99,11 +99,7 @@ footer {
 }
 
 header {
-  justify-content: space-between;
-}
-
-header img {
-  width: clamp(80px, 15vw, 200px);
+  justify-content: flex-end;
 }
 
 footer {
